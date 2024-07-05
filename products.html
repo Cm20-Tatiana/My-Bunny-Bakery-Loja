@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunny Food Shop - Produtos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+.product-item {
+    text-align: center; /* Center align the buttons within the .product-item container */
+}
+
+.product-item button {
+    display: block; /* Display buttons as block elements to stack them */
+    width: 50%; /* Optional: Make buttons take up 50% width */
+    max-width: 200px; /* Optional: Set a maximum width for the buttons */
+    padding: 10px 20px;
+    background-color: #EA6A79;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto 10px; /* Center horizontally and provide space below */
+}
+
+.product-item button:hover {
+    background-color: #6D3E35; /* Darken the background color on hover */
+}
+
+/* Override default button styling */
+.product-item button::-moz-focus-inner,
+.product-item button:focus {
+    outline: none;
+}
+
+        /* Additional CSS for image size adjustment */
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .overlay-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .overlay img {
+            max-width: 50%;
+            max-height: 400px;
+        }
+
+        .overlay-text {
+            max-width: 50%;
+            overflow-y: auto;
+        }
+
+        .overlay-text {
+            font-size: 14px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="menu">
+        <div class="logo-container">
+            <img src="imgs/logo.png" alt="Logo" class="logo">
+            <h1 class="bakery-name">MY BUNNY BAKERY</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Loja</a>
+            <a href="aboutus.html">Sobre Nós</a>
+            <a href="contacts.html">Contactos</a>
+            <div class="cart-icon"></div>
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="mobile-nav-links" id="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <hr>
+        <a href="products.html">Loja</a>
+        <hr>
+        <a href="aboutus.html">Sobre Nós</a>
+        <hr>
+        <a href="contacts.html">Contactos</a>
+        <hr>
+        <div class="cart-icon"></div>
+    </div>
+    <div class="product-page">
+        <a href="#" onclick="showCart()">Carrinho</a>
+        <a href="carrinho.php">Ver Carrinho</a>
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Pesquisar produtos...">
+            <button onclick="searchProducts()">Pesquisar</button>
+            <select id="filter-options" onchange="applyFilter()">
+                <option value="">Todos os Produtos</option>
+                <option value="feno">Produtos de Feno</option>
+                <option value="aveia">Produtos de Aveia</option>
+                <option value="asc">Preço Ascendente</option>
+                <option value="desc">Preço Descendente</option>
+            </select>
+        </div>
+        <div id="product-list" class="product-list">
+            <!-- Produtos serão inseridos aqui via JavaScript -->
+        </div>
+        <div class="pagination">
+            <button onclick="changePage(1)">1</button>
+            <button onclick="changePage(2)">2</button>
+            <button onclick="changePage(3)">3</button>
+            <button onclick="changePage(4)">4</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <button class="close-button" onclick="closeOverlay()">×</button>
+        <div class="overlay-content">
+            <img id="overlay-image" src="" alt="Product Image">
+            <div id="overlay-text" class="overlay-text">
+                <!-- Product information will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <p>Contact us: <a href="contact.html">Email</a> | Phone: 123-456-7890</p>
+            <p>Follow us on <a href="https://www.instagram.com/youraccount" target="_blank">Instagram</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+              {
+                id: 1,
+                name: 'Hayberry Delights',
+                type: 'feno',
+                price: 6,
+                info: '<h2>Hayberry Delights</h2><p>Combinação única de feno nutritivo (Timóteo e bio), banana, framboesas e calêndula.</p><p><strong>INGREDIENTES:</strong><br>• Feno Timóteo/bio<br>• Banana<br>• Framboesas<br>• Calêndula</p><p>Adequado para coelhos e porquinhos da Índia.</p><p><strong>NOTA IMPORTANTE:</strong><br>Seguro para coelhos, mas ofereça em pequenas quantidades e não diariamente. Evite para coelhos com menos de 2 meses. Moderado para coelhos com menos de 6 meses.</p><p><strong>RECOMENDADO usar dentro de 6 meses.</strong> Para animais de estimação saudáveis como petisco, não substitui refeições.</p><p><strong>USO:</strong><br>Coelhos têm estômagos sensíveis; introduza novos alimentos gradualmente.</p><p><strong>ARMAZENAMENTO:</strong><br>Recipiente fechado em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 6,00 incluí 2 unidades.</p>'
+            },
+            {
+                id: 2,
+                name: 'Blossom Spinach',
+                type: 'aveia',
+                price: 5,
+                info: '<h2>Blossom Spinach</h2><p>As nossas bolachas crocantes feitas de Espinafre Bio e Aveia Bio são uma opção fantástica. Criadas com cuidado e dedicação para proporcionar ao seu coelho uma experiência de sabor extraordinária. Feitas com ingredientes seguros e de alta qualidade.</p><p><strong>INGREDIENTES:</strong><br>• Espinafres Bio<br>• Aveia Bio</p><p><strong>INSTRUÇÕES DE USO:</strong><br>Adequado para coelhos com mais de 2 meses de idade. Coelhos com menos de 6 meses devem receber com moderação. Introduza novas guloseimas lentamente e em pequenas quantidades devido aos estômagos sensíveis dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilize dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco, não como substituto de refeições.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em recipiente fechado e hermético em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,50 incluí 1 unidade.</p>'
+            },
+            {
+                id: 3,
+                name: 'Raspberry Munchies',
+                type: 'aveia',
+                price: 4.60,
+                info: '<h2>Raspberry Munchies</h2><p>Raspberry Munchies são bolachas crocantes com sabor a framboesa e aveia biológica em formato de abelha. Ideal para recompensar o comportamento adorável do seu coelhinho, feitas com ingredientes naturais de alta qualidade.</p><p><strong>INGREDIENTES:</strong><br>• Framboesas<br>• Aveia Biológica</p><p><strong>NOTA IMPORTANTE:</strong><br>Guloseimas seguras para coelhos, mas com alto teor de açúcar devido ao suco de frutas. Ofereça em pequenas quantidades e não diariamente. Não recomendado para coelhos com menos de 2 meses; moderação para coelhos abaixo de 6 meses. Introduza novas guloseimas lentamente devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como petisco, não substituto de refeições.</p><p><strong>USO:</strong><br>Evite excesso de açúcar ao oferecer junto com outras guloseimas açucaradas. Introduza gradualmente em pequenas quantidades.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco, seco e hermético.</p><p><strong>PACOTE:</strong><br>Cada pacote contém 10 bolachas em formato de abelha.</p><p>Preço: 4,60 por 10 unidades.</p>'
+            },
+            {
+                id: 4,
+                name: 'BananaBee Cookies',
+                type: 'aveia',
+                price: 4.60,
+                info: '<h2>BananaBee Cookies</h2><p>Bolachas em formato de abelha feitas com banana e aveia biológica, ideal para recompensar o comportamento adorável do seu coelhinho.</p><p><strong>INGREDIENTES:</strong><br>• Banana<br>• Aveia Biológica</p><p><strong>NOTA IMPORTANTE:</strong><br>Seguras para coelhos, ofereça em pequenas quantidades e não diariamente. Não recomendado para coelhos com menos de 2 meses; moderação para coelhos abaixo de 6 meses. Introduza novas guloseimas lentamente devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como petisco, não substituto de refeições. Evite excesso de açúcar ao oferecer junto com outras guloseimas açucaradas. Introduza gradualmente em pequenas quantidades.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em recipiente fechado e hermético em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 4,60 incluí 10 unidades.</p>'
+            },
+            {
+                id: 5,
+                name: 'Mini Heart Bites',
+                type: 'aveia',
+                price: 5,
+                info: '<h2>Mini Heart Bites</h2><p>Mini Heart Bites são bolachas feitas com aveia, banana e folhas de framboesa, criadas para alegrar o dia do seu coelhinho com uma delícia saudável e fofa.</p><p><strong>INGREDIENTES:</strong><br>• Aveia<br>• Banana<br>• Folhas de Framboesa</p><p><strong>NOTA IMPORTANTE:</strong><br>Seguras para coelhos, ofereça em pequenas quantidades e não diariamente. Não recomendado para coelhos com menos de 2 meses; moderação para coelhos abaixo de 6 meses. Introduza novas guloseimas lentamente devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como petisco, não substituto de refeições. Evite excesso de açúcar ao oferecer junto com outras guloseimas açucaradas. Introduza gradualmente em pequenas quantidades.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em recipiente fechado e hermético em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,00 por 80g</p>'
+            },
+            {
+                id: 6,
+                name: 'Rose Raspberry Ice Cream',
+                type: 'feno',
+                price: 5,
+                info: '<h2>Rose Raspberry Ice Cream</h2><p>Nosso gelado natural combina feno de Timóteo bio, framboesas e rosas para proporcionar benefícios à saúde do seu coelhinho. Cada trinca é uma iguaria refrescante e nutritiva que encantará o paladar do seu coelho.</p><p><strong>INGREDIENTES:</strong><br>• Feno (Timóteo bio)<br>• Framboesa<br>• Rosas</p><p><strong>NOTA IMPORTANTE:</strong><br>Gelado seguro para coelhos, ofereça em pequenas quantidades e ocasionalmente. Contém ervas e frutas benéficas, mas introduza na dieta com moderação devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco ocasional e refrescante, não substituto de refeições. Ofereça uma pequena porção como mimo refrescante. Evite excessos, especialmente após consumo de outras guloseimas. Controle a quantidade de açúcar oferecida.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,00 por unidade</p>'
+            },
+            {
+                id: 7,
+                name: 'Corneto de Calêndula',
+                type: 'feno',
+                price: 5,
+                info: '<h2>Corneto de Calêndula</h2><p>Nosso Corneto de Calêndula é rico em fibras, vitaminas e minerais essenciais para uma dieta equilibrada. Combina feno Timóteo bio com a saborosa banana, proporcionando uma experiência única de sabor e nutrição para o seu coelhinho.</p><p><strong>INGREDIENTES:</strong><br>• Feno Timóteo bio<br>• Banana</p><p><strong>NOTA IMPORTANTE:</strong><br>Corneto seguro para coelhos, ofereça em pequenas quantidades e ocasionalmente. Contém ingredientes benéficos, mas introduza na dieta com moderação devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco ocasional e nutritivo, não substituto de refeições. Ofereça como um mimo especial. Evite excessos, especialmente após consumo de outras guloseimas. Controle a quantidade de açúcar oferecida.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,00 por unidade</p>'
+            },
+            {
+                id: 8,
+                name: 'Bolachas de Morango com Aveia',
+                type: 'aveia',
+                price: 5.50,
+                info: '<h2>Bolachas de Morango com Aveia</h2><p>Apresentamos as Bolachas de Morango com Aveia - petiscos crocantes que combinam o doce sabor do morango com a nutrição da aveia biológica. São o miminho perfeito para recompensar o comportamento adorável do seu coelhinho, oferecendo energia e diversão.</p><p><strong>INGREDIENTES:</strong><br>• Aveia biológica<br>• Morango</p><p><strong>NOTA IMPORTANTE:</strong><br>Bolachas seguras para coelhos, ofereça em pequenas quantidades e ocasionalmente. Contêm ingredientes benéficos, mas introduza na dieta com moderação devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco ocasional e nutritivo, não substituto de refeições. Evite excessos, especialmente após consumo de outras guloseimas. Controle a quantidade de açúcar oferecida.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,50 por 80g</p>'
+            },
+            {
+                id: 9,
+                name: 'Bolo de Aniversário para Coelhos',
+                type: 'aveia',
+                price: 18,
+                info: '<h2>Bolo de Aniversário para Coelhos</h2><p>Apresentamos o Bolo de Aniversário para Coelhos - uma deliciosa combinação de feno, banana, pétalas de rosa e pétalas de calêndula. Este bolo foi criado especialmente para oferecer ao seu coelhinho uma experiência de sabor única e nutritiva no seu dia especial.</p><p><strong>INGREDIENTES:</strong><br>• Feno<br>• Banana<br>• Pétalas de Rosa<br>• Pétalas de Calêndula</p><p><strong>NOTA IMPORTANTE:</strong><br>Contém ingredientes benéficos, mas introduza na dieta com moderação devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 4 meses. Destinado a animais de estimação saudáveis como uma guloseima nutritiva, não substituto de refeições. Ofereça pequenas porções para evitar desconforto digestivo.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco e seco até o momento de servir.</p><p><strong>PACOTE</strong><br>Preço: 18,00</p>'
+            },
+            {
+                id: 10,
+                name: 'Crispy Carrots biscuits with camomile',
+                type: 'aveia',
+                price: 5,
+                info: '<h2>Crispy Carrots biscuits with camomile</h2><p>Mime o seu coelhinho com um petisco delicioso e saudável!</p><p><strong>Descrição:</strong><br>Apresentamos as Bolachas de Cenoura, Aveia Bio e Camomila - petiscos crocantes que combinam a suavidade da aveia Bio, a nutrição da cenoura e o toque calmante da camomila. Estas bolachinhas são o miminho perfeito para recompensar o comportamento adorável do seu coelhinho.</p><p><strong>Ingredientes:</strong><br>• Cenoura<br>• Aveia Bio<br>• Camomila</p><p><strong>Nota Importante:</strong><br>Estas bolachas são seguras para dar aos coelhos, mas devem ser oferecidas em pequenas quantidades e de forma ocasional. Contêm ingredientes benéficos para a saúde dos coelhos; introduza novos alimentos na dieta com moderação, devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>Recomendações:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco ocasional e nutritivo, não substituto de refeições. Evite dar em excesso, especialmente se o seu coelho já consumiu outras guloseimas. Controle a quantidade oferecida devido à sensibilidade dos coelhos a açúcares.</p><p><strong>Armazenamento:</strong><br>Armazenar em local fresco e seco.</p><p><strong>Pacote:</strong><br>Preço: 5 euros por 80g</p>'
+            },
+
+
+        ];
+
+
+        let currentPage = 1;
+        const productsPerPage = 9;
+
+        function displayProducts(page = 1) {
+    currentPage = page;
+    const startIndex = (page - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const paginatedProducts = products.slice(startIndex, endIndex);
+
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+    paginatedProducts.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product-item';
+
+        const imageSrc = `imgs/product${product.id}.jpg`;
+        const imageElement = document.createElement('img');
+        imageElement.src = imageSrc;
+        imageElement.alt = product.name;
+        productDiv.appendChild(imageElement);
+
+        const nameElement = document.createElement('h3');
+        nameElement.textContent = product.name;
+        productDiv.appendChild(nameElement);
+
+        const typeElement = document.createElement('p');
+        typeElement.textContent = `Tipo: ${product.type}`;
+        productDiv.appendChild(typeElement);
+
+        const priceElement = document.createElement('p');
+        priceElement.textContent = `Preço: ${product.price}€`;
+        productDiv.appendChild(priceElement);
+
+        const buttonContainer = document.createElement('div'); // Container para os botões
+        buttonContainer.className = 'button-container';
+
+
+        const moreInfoButton = document.createElement('button');
+        moreInfoButton.textContent = 'Mais Informação';
+        moreInfoButton.onclick = () => showOverlay(imageSrc, product.info);
+        buttonContainer.appendChild(moreInfoButton);
+
+        const addToCartButton = document.createElement('button');
+        addToCartButton.textContent = 'Adiciona ao Carrinho';
+        moreInfoButton.className = 'button2'; 
+        addToCartButton.onclick = () => addToCart(product.id);
+        buttonContainer.appendChild(addToCartButton);
+
+        productDiv.appendChild(buttonContainer); // Adiciona o container com os botões ao produto
+        productList.appendChild(productDiv);
+    });
+}
+
+        // Função para realizar a pesquisa ao pressionar Enter
+        document.getElementById('search-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchProducts();
+            }
+        });
+
+        // Função para pesquisar produtos
+        function searchProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query));
+            displayFilteredProducts(filteredProducts);
+        }
+
+        function displayFilteredProducts(filteredProducts) {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+    filteredProducts.slice(0, productsPerPage).forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product-item';
+
+        const imageSrc = `imgs/product${product.id}.jpg`;
+        const imageElement = document.createElement('img');
+        imageElement.src = imageSrc;
+        imageElement.alt = product.name;
+        productDiv.appendChild(imageElement);
+
+        const nameElement = document.createElement('h3');
+        nameElement.textContent = product.name;
+        productDiv.appendChild(nameElement);
+
+        const typeElement = document.createElement('p');
+        typeElement.textContent = `Tipo: ${product.type}`;
+        productDiv.appendChild(typeElement);
+
+        const priceElement = document.createElement('p');
+        priceElement.textContent = `Preço: ${product.price}€`;
+        productDiv.appendChild(priceElement);
+
+        const buttonContainer = document.createElement('div'); // Container para os botões
+        buttonContainer.className = 'button-container';
+
+        const moreInfoButton = document.createElement('button');
+        moreInfoButton.textContent = 'Mais Informação';
+        moreInfoButton.onclick = () => showOverlay(imageSrc, product.info);
+        buttonContainer.appendChild(moreInfoButton);
+
+
+        const addToCartButton = document.createElement('button');
+        addToCartButton.textContent = 'Adiciona ao Carrinho';
+        addToCartButton.onclick = () => addToCart(product.id);
+        moreInfoButton.className = 'button2'; 
+        buttonContainer.appendChild(addToCartButton);
+
+        productDiv.appendChild(buttonContainer); // Adiciona o container com os botões ao produto
+        productList.appendChild(productDiv);
+    });
+}
+
+function showOverlay(imageSrc, info) {
+    const overlay = document.getElementById('overlay');
+    const overlayImage = document.getElementById('overlay-image');
+    const overlayText = document.getElementById('overlay-text');
+
+    overlayImage.src = imageSrc;
+    overlayText.innerHTML = info;
+
+    overlay.style.display = 'flex'; // Mudança para 'flex' para corrigir exibição da sobreposição
+
+    // Adicionar um event listener para fechar a sobreposição ao clicar fora da área do conteúdo
+    overlay.addEventListener('click', function(event) {
+        if (event.target === overlay) {
+            closeOverlay();
+        }
+    });
+}
+
+function closeOverlay() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+}
+
+
+function addToCart(productId) {
+    // Aqui você pode adicionar a lógica para adicionar o produto ao carrinho
+    alert(`Produto ${productId} adicionado ao carrinho!`);
+}
+
+        function changePage(page) {
+            displayProducts(page);
+        }
+
+        // Inicializar a exibição dos produtos
+        displayProducts();
+
+
+        let cart = []; // Array para armazenar os produtos adicionados ao carrinho
+let total = 0; // Variável para armazenar a soma dos preços dos produtos no carrinho
+
+function addToCart(productId) {
+    // Encontrar o produto pelo ID
+    const product = products.find(p => p.id === productId);
+
+    // Adicionar o produto ao carrinho
+    cart.push(product);
+
+    // Atualizar o total
+    total += product.price;
+
+    // Exibir uma mensagem ou fazer outra ação (pode ajustar conforme necessário)
+    alert(`Produto ${product.name} adicionado ao carrinho!`);
+
+    // Exemplo de como você pode imprimir o conteúdo do carrinho no console
+    console.log("Carrinho:", cart);
+    console.log("Total:", total);
+}
+function showCart() {
+    // Exemplo simples de como você pode exibir os produtos no carrinho
+    if (cart.length === 0) {
+        alert("Seu carrinho está vazio!");
+    } else {
+        let cartContents = "Produtos no Carrinho:\n";
+        cart.forEach(product => {
+            cartContents += `${product.name} - Preço: ${product.price}€\n`;
+        });
+        cartContents += `\nTotal: ${total}€`;
+
+        alert(cartContents);
+    }
+}
+
+    </script>
+</body>
+</html>

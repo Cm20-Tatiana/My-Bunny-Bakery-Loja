@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bunny Food Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="logo-container">
+            <img src="imgs/logo.png" alt="Logo" class="logo">
+            <h1 class="bakery-name">MY BUNNY BAKERY</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Loja</a>
+            <a href="aboutus.html">Sobre Nós</a>
+            <a href="contacts.html">Contactos</a>
+            <div class="cart-icon"></div>
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="mobile-nav-links" id="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <hr>
+        <a href="products.html">Loja</a>
+        <hr>
+        <a href="aboutus.html">Sobre Nós</a>
+        <hr>
+        <a href="contacts.html">Contactos</a>
+        <hr>
+        <div class="cart-icon"></div>
+    </div>
+    <div class="contact-container">
+        <div class="contact-section">
+            <div class="contact-form">
+                <h2>Contacte-nos</h2>
+                <form action="send_email.php" method="POST">
+                    <input type="text" name="name" placeholder="O Seu Nome" required>
+                    <input type="email" name="email" placeholder="O Seu Email" required>
+                    <textarea name="message" placeholder="A Sua Mensagem" required></textarea>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h2>Informações de Contacto</h2>
+                <ul>
+                    <li>Email: info@bunnyfoodshop.com</li>
+                    <li>Telefone: +1 234 567 890</li>
+                    <li>Instagram:<a href="https://www.instagram.com/mybunnybakery.pt?igsh=MWVvNWp2bno4aXVqaw==" target="_blank"> @mybunnybakery.pt</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <p>Contact us: <a href="contact.html">Email</a> | Phone: 123-456-7890</p>
+            <p>Follow us on <a href="https://www.instagram.com/mybunnybakery.pt?igsh=MWVvNWp2bno4aXVqaw==" target="_blank">Instagram</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('hamburger-menu').addEventListener('click', function() {
+            var mobileNavLinks = document.getElementById('mobile-nav-links');
+            if (mobileNavLinks.style.display === 'flex') {
+                mobileNavLinks.style.display = 'none';
+            } else {
+                mobileNavLinks.style.display = 'flex';
+            }
+        });
+    </script>
+    
+    </body>
+    </html>
+    

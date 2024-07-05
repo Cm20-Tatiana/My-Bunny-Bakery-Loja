@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunny Food Shop - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="menu">
+        <div class="logo-container">
+            <img src="imgs/logo.png" alt="Logo" class="logo">
+            <h1 class="bakery-name">MY BUNNY BAKERY</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Loja</a>
+            <a href="aboutus.html">Sobre Nós</a>
+            <a href="contacts.html">Contactos</a>
+            <div class="cart-icon"></div>
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="mobile-nav-links" id="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <hr>
+        <a href="products.html">Loja</a>
+        <hr>
+        <a href="aboutus.html">Sobre Nós</a>
+        <hr>
+        <a href="contacts.html">Contactos</a>
+        <hr>
+        <div class="cart-icon"></div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Everything you need for your bunny!</h2>
+            <button onclick="location.href='products.html'">Buy Now</button>
+        </div>
+    </div>
+       
+    <div class="container">
+        <div class="column">
+            <img src="imgs/item1.jpg" alt="Item 1">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Consectetur adipiscing elit.</p>
+            <p>Sed do eiusmod tempor.</p>
+        </div>
+        <div class="column">
+            <img src="imgs/item2.jpg" alt="Item 2">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Consectetur adipiscing elit.</p>
+            <p>Sed do eiusmod tempor.</p>
+        </div>
+        <div class="column">
+            <img src="imgs/item3.jpg" alt="Item 3">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Consectetur adipiscing elit.</p>
+            <p>Sed do eiusmod tempor.</p>
+        </div>
+        <div class="column">
+            <img src="imgs/item4.jpg" alt="Item 4">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Consectetur adipiscing elit.</p>
+            <p>Sed do eiusmod tempor.</p>
+        </div>
+    </div>
+
+            <!-- Full Width Images Section -->
+            <div class="full-width-images">
+                <div class="image-wrapper">
+                    <img src="imgs/image1.jpg" alt="Image 1">
+                    <button class="img-button" onclick="location.href='products.html'">Products</button>
+                </div>
+                <div class="image-wrapper">
+                    <img src="imgs/image2.jpg" alt="Image 2">
+                    <button class="img-button" onclick="location.href='aboutus.html'">About Us</button>
+                </div>
+                <div class="image-wrapper">
+                    <img src="imgs/image3.jpg" alt="Image 3">
+                    <button class="img-button" onclick="location.href='contacts.html'">Contacts</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="top-sellers">
+            <h1>Mais Vendidos</h1>
+        </div>
+        <div class="container">
+            <div class="column">
+                <div class="column-content">
+                    <img src="imgs/product8.jpg" alt="Item 1">
+                    <h2>Bolachas de Morango com Aveia</h2>
+                    <p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-content">
+                    <img src="imgs/product3.jpg" alt="Item 2">
+                    <h2>Raspberry Munchies</h2>
+                    <p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-content">
+                    <img src="imgs/product2.jpg" alt="Item 3">
+                    <h2>Blossom Spinach</h2>
+                    <p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-content">
+                    <img src="imgs/product9.jpg" alt="Item 4">
+                    <h2>Bolo de Aniversário para Coelhos</h2>
+                    <p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+
+    <div class="gallery">
+        <div class="gallery-container">
+            <div class="slide">
+                <img src="imgs/gallery1.jpg" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="imgs/gallery2.jpg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="imgs/gallery3.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="imgs/gallery4.jpg" alt="Image 4">
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+        <footer>
+            <div class="footer-container">
+                <p>Contact us: <a href="contact.html">Email</a> | Phone: 123-456-7890</p>
+                <p>Follow us on <a href="https://www.instagram.com/youraccount" target="_blank">Instagram</a></p>
+            </div>
+        </footer>
+
+        <div class="scroll-to-top">
+            <a href="#top" class="scroll-to-top-btn">&uarr;</a>
+        </div>
+        
+        <script src="script.js"></script>
+
+
+</body>
+</html>
