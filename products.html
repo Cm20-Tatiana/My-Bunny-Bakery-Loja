@@ -246,59 +246,56 @@
 
         ];
 
-
         let currentPage = 1;
         const productsPerPage = 9;
 
         function displayProducts(page = 1) {
-    currentPage = page;
-    const startIndex = (page - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-    const paginatedProducts = products.slice(startIndex, endIndex);
+            currentPage = page;
+            const startIndex = (page - 1) * productsPerPage;
+            const endIndex = startIndex + productsPerPage;
+            const paginatedProducts = products.slice(startIndex, endIndex);
 
-    const productList = document.getElementById('product-list');
-    productList.innerHTML = '';
-    paginatedProducts.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product-item';
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            paginatedProducts.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product-item';
 
-        const imageSrc = `imgs/product${product.id}.jpg`;
-        const imageElement = document.createElement('img');
-        imageElement.src = imageSrc;
-        imageElement.alt = product.name;
-        productDiv.appendChild(imageElement);
+                const imageSrc = `imgs/product${product.id}.jpg`;
+                const imageElement = document.createElement('img');
+                imageElement.src = imageSrc;
+                imageElement.alt = product.name;
+                productDiv.appendChild(imageElement);
 
-        const nameElement = document.createElement('h3');
-        nameElement.textContent = product.name;
-        productDiv.appendChild(nameElement);
+                const nameElement = document.createElement('h3');
+                nameElement.textContent = product.name;
+                productDiv.appendChild(nameElement);
 
-        const typeElement = document.createElement('p');
-        typeElement.textContent = `Tipo: ${product.type}`;
-        productDiv.appendChild(typeElement);
+                const typeElement = document.createElement('p');
+                typeElement.textContent = `Tipo: ${product.type}`;
+                productDiv.appendChild(typeElement);
 
-        const priceElement = document.createElement('p');
-        priceElement.textContent = `Preço: ${product.price}€`;
-        productDiv.appendChild(priceElement);
+                const priceElement = document.createElement('p');
+                priceElement.textContent = `Preço: ${product.price}€`;
+                productDiv.appendChild(priceElement);
 
-        const buttonContainer = document.createElement('div'); // Container para os botões
-        buttonContainer.className = 'button-container';
+                const buttonContainer = document.createElement('div'); // Container para os botões
+                buttonContainer.className = 'button-container';
 
+                const moreInfoButton = document.createElement('button');
+                moreInfoButton.textContent = 'Mais Informação';
+                moreInfoButton.onclick = () => showOverlay(imageSrc, product.info);
+                buttonContainer.appendChild(moreInfoButton);
 
-        const moreInfoButton = document.createElement('button');
-        moreInfoButton.textContent = 'Mais Informação';
-        moreInfoButton.onclick = () => showOverlay(imageSrc, product.info);
-        buttonContainer.appendChild(moreInfoButton);
+                const addToCartButton = document.createElement('button');
+                addToCartButton.textContent = 'Adiciona ao Carrinho';
+                addToCartButton.onclick = () => addToCart(product.id);
+                buttonContainer.appendChild(addToCartButton);
 
-        const addToCartButton = document.createElement('button');
-        addToCartButton.textContent = 'Adiciona ao Carrinho';
-        moreInfoButton.className = 'button2'; 
-        addToCartButton.onclick = () => addToCart(product.id);
-        buttonContainer.appendChild(addToCartButton);
-
-        productDiv.appendChild(buttonContainer); // Adiciona o container com os botões ao produto
-        productList.appendChild(productDiv);
-    });
-}
+                productDiv.appendChild(buttonContainer); // Adiciona o container com os botões ao produto
+                productList.appendChild(productDiv);
+            });
+        }
 
         // Função para realizar a pesquisa ao pressionar Enter
         document.getElementById('search-input').addEventListener('keypress', function (e) {
@@ -315,122 +312,91 @@
         }
 
         function displayFilteredProducts(filteredProducts) {
-    const productList = document.getElementById('product-list');
-    productList.innerHTML = '';
-    filteredProducts.slice(0, productsPerPage).forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product-item';
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            filteredProducts.slice(0, productsPerPage).forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product-item';
 
-        const imageSrc = `imgs/product${product.id}.jpg`;
-        const imageElement = document.createElement('img');
-        imageElement.src = imageSrc;
-        imageElement.alt = product.name;
-        productDiv.appendChild(imageElement);
+                const imageSrc = `imgs/product${product.id}.jpg`;
+                const imageElement = document.createElement('img');
+                imageElement.src = imageSrc;
+                imageElement.alt = product.name;
+                productDiv.appendChild(imageElement);
 
-        const nameElement = document.createElement('h3');
-        nameElement.textContent = product.name;
-        productDiv.appendChild(nameElement);
+                const nameElement = document.createElement('h3');
+                nameElement.textContent = product.name;
+                productDiv.appendChild(nameElement);
 
-        const typeElement = document.createElement('p');
-        typeElement.textContent = `Tipo: ${product.type}`;
-        productDiv.appendChild(typeElement);
+                const typeElement = document.createElement('p');
+                typeElement.textContent = `Tipo: ${product.type}`;
+                productDiv.appendChild(typeElement);
 
-        const priceElement = document.createElement('p');
-        priceElement.textContent = `Preço: ${product.price}€`;
-        productDiv.appendChild(priceElement);
+                const priceElement = document.createElement('p');
+                priceElement.textContent = `Preço: ${product.price}€`;
+                productDiv.appendChild(priceElement);
 
-        const buttonContainer = document.createElement('div'); // Container para os botões
-        buttonContainer.className = 'button-container';
+                const buttonContainer = document.createElement('div'); // Container para os botões
+                buttonContainer.className = 'button-container';
 
-        const moreInfoButton = document.createElement('button');
-        moreInfoButton.textContent = 'Mais Informação';
-        moreInfoButton.onclick = () => showOverlay(imageSrc, product.info);
-        buttonContainer.appendChild(moreInfoButton);
+                const moreInfoButton = document.createElement('button');
+                moreInfoButton.textContent = 'Mais Informação';
+                moreInfoButton.onclick = () => showOverlay(imageSrc, product.info);
+                buttonContainer.appendChild(moreInfoButton);
 
+                const addToCartButton = document.createElement('button');
+                addToCartButton.textContent = 'Adiciona ao Carrinho';
+                addToCartButton.onclick = () => addToCart(product.id);
+                buttonContainer.appendChild(addToCartButton);
 
-        const addToCartButton = document.createElement('button');
-        addToCartButton.textContent = 'Adiciona ao Carrinho';
-        addToCartButton.onclick = () => addToCart(product.id);
-        moreInfoButton.className = 'button2'; 
-        buttonContainer.appendChild(addToCartButton);
-
-        productDiv.appendChild(buttonContainer); // Adiciona o container com os botões ao produto
-        productList.appendChild(productDiv);
-    });
-}
-
-function showOverlay(imageSrc, info) {
-    const overlay = document.getElementById('overlay');
-    const overlayImage = document.getElementById('overlay-image');
-    const overlayText = document.getElementById('overlay-text');
-
-    overlayImage.src = imageSrc;
-    overlayText.innerHTML = info;
-
-    overlay.style.display = 'flex'; // Mudança para 'flex' para corrigir exibição da sobreposição
-
-    // Adicionar um event listener para fechar a sobreposição ao clicar fora da área do conteúdo
-    overlay.addEventListener('click', function(event) {
-        if (event.target === overlay) {
-            closeOverlay();
-        }
-    });
-}
-
-function closeOverlay() {
-    const overlay = document.getElementById('overlay');
-    overlay.style.display = 'none';
-}
-
-
-function addToCart(productId) {
-    // Aqui você pode adicionar a lógica para adicionar o produto ao carrinho
-    alert(`Produto ${productId} adicionado ao carrinho!`);
-}
-
-        function changePage(page) {
-            displayProducts(page);
+                productDiv.appendChild(buttonContainer); // Adiciona o container com os botões ao produto
+                productList.appendChild(productDiv);
+            });
         }
 
-        // Inicializar a exibição dos produtos
+        function applyFilter() {
+            const filterValue = document.getElementById('filter-options').value;
+            let filteredProducts = [...products];
+
+            if (filterValue === 'feno') {
+                filteredProducts = filteredProducts.filter(product => product.type === 'feno');
+            } else if (filterValue === 'aveia') {
+                filteredProducts = filteredProducts.filter(product => product.type === 'aveia');
+            } else if (filterValue === 'asc') {
+                filteredProducts.sort((a, b) => a.price - b.price);
+            } else if (filterValue === 'desc') {
+                filteredProducts.sort((a, b) => b.price - a.price);
+            }
+
+            displayFilteredProducts(filteredProducts);
+        }
+
+        function showOverlay(imageSrc, info) {
+            const overlay = document.getElementById('overlay');
+            const overlayImage = document.getElementById('overlay-image');
+            const overlayText = document.getElementById('overlay-text');
+
+            overlayImage.src = imageSrc;
+            overlayText.textContent = info;
+
+            overlay.style.display = 'flex';
+        }
+
+        function closeOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+
+        function addToCart(productId) {
+            // Função para adicionar produto ao carrinho
+            console.log('Produto adicionado ao carrinho:', productId);
+        }
+
+        function changePage(pageNumber) {
+            displayProducts(pageNumber);
+        }
+
         displayProducts();
-
-
-        let cart = []; // Array para armazenar os produtos adicionados ao carrinho
-let total = 0; // Variável para armazenar a soma dos preços dos produtos no carrinho
-
-function addToCart(productId) {
-    // Encontrar o produto pelo ID
-    const product = products.find(p => p.id === productId);
-
-    // Adicionar o produto ao carrinho
-    cart.push(product);
-
-    // Atualizar o total
-    total += product.price;
-
-    // Exibir uma mensagem ou fazer outra ação (pode ajustar conforme necessário)
-    alert(`Produto ${product.name} adicionado ao carrinho!`);
-
-    // Exemplo de como você pode imprimir o conteúdo do carrinho no console
-    console.log("Carrinho:", cart);
-    console.log("Total:", total);
-}
-function showCart() {
-    // Exemplo simples de como você pode exibir os produtos no carrinho
-    if (cart.length === 0) {
-        alert("Seu carrinho está vazio!");
-    } else {
-        let cartContents = "Produtos no Carrinho:\n";
-        cart.forEach(product => {
-            cartContents += `${product.name} - Preço: ${product.price}€\n`;
-        });
-        cartContents += `\nTotal: ${total}€`;
-
-        alert(cartContents);
-    }
-}
-
     </script>
 </body>
 </html>
