@@ -330,7 +330,6 @@ cursor: pointer;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #EA6A79;
-    color: white;
     font-weight: bold;
     font-size: 18px;
     padding: 10px 20px;
@@ -750,3 +749,83 @@ footer a:hover {
         cursor: pointer;
     }
 
+
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    .container2 {
+        padding: 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+    .header {
+        margin-bottom: 20px;
+        margin-top: 13%;
+    }
+    .header h2 {
+        margin: 0;
+        color: #6D3E35;
+
+    }
+    .profile, .bunnies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+    .profile-text, .bunny-text {
+        flex: 1 1 45%;
+        margin-right: 20px;
+    }
+    .profile img, .bunnies img {
+
+        flex: 1 1 45%;
+        max-width: 30%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .profile p, .bunnies p {
+        margin: 0 0 10px;
+        line-height: 1.6;
+    }
+    .bunny {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .bunny:nth-child(odd) .bunny-text {
+        order: 2;
+        margin-right: 0;
+        margin-left: 20px;
+    }
+    .bunny:nth-child(odd) img {
+        order: 1;
+    }
+    .bunny h3 {
+        color: #6D3E35;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+    @media (max-width: 800px) {
+        .profile, .bunnies {
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-text, .bunny-text, .profile img, .bunnies img {
+            max-width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+        .bunny {
+            flex-direction: column;
+        }
+        .bunny:nth-child(odd) .bunny-text, .bunny:nth-child(odd) img {
+            order: unset;
+            margin-left: 0;
+        }
+    }
