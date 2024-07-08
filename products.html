@@ -5,94 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bunny Food Shop - Produtos</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
 
-.product-item {
-    text-align: center; /* Center align the buttons within the .product-item container */
-}
-
-.product-item button {
-    display: block; /* Display buttons as block elements to stack them */
-    width: 50%; /* Optional: Make buttons take up 50% width */
-    max-width: 200px; /* Optional: Set a maximum width for the buttons */
-    padding: 10px 20px;
-    background-color: #EA6A79;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 auto 10px; /* Center horizontally and provide space below */
-}
-
-.product-item button:hover {
-    background-color: #6D3E35; /* Darken the background color on hover */
-}
-
-/* Override default button styling */
-.product-item button::-moz-focus-inner,
-.product-item button:focus {
-    outline: none;
-}
-
-        /* Additional CSS for image size adjustment */
-        .product-item img {
-            max-width: 100%;
-            height: auto;
-            max-height: 250px;
-        }
-        
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .overlay-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            width: 100%;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .overlay img {
-            max-width: 50%;
-            max-height: 400px;
-        }
-
-        .overlay-text {
-            max-width: 50%;
-            overflow-y: auto;
-        }
-
-        .overlay-text {
-            font-size: 14px;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 50px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     
@@ -372,25 +285,38 @@
         }
 
         function showOverlay(imageSrc, info) {
-            const overlay = document.getElementById('overlay');
-            const overlayImage = document.getElementById('overlay-image');
-            const overlayText = document.getElementById('overlay-text');
+        const overlay = document.getElementById('overlay');
+        const overlayImage = document.getElementById('overlay-image');
+        const overlayText = document.getElementById('overlay-text');
 
-            overlayImage.src = imageSrc;
-            overlayText.textContent = info;
+        overlayImage.src = imageSrc;
+        overlayText.innerHTML = info; // Usar innerHTML para permitir formatação HTML
 
-            overlay.style.display = 'flex';
-        }
+        overlay.style.display = 'flex';
+    }
+
 
         function closeOverlay() {
             const overlay = document.getElementById('overlay');
             overlay.style.display = 'none';
         }
 
+
         function addToCart(productId) {
-            // Função para adicionar produto ao carrinho
-            console.log('Produto adicionado ao carrinho:', productId);
-        }
+    console.log(`Produto ${productId} adicionado ao carrinho.`);
+    
+    // Obter o carrinho atual do localStorage ou inicializar um array vazio
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Adicionar o novo productId ao carrinho
+    cart.push(productId);
+    
+    // Atualizar o localStorage com o carrinho atualizado
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Exibir um alerta para o usuário informando que o produto foi adicionado ao carrinho
+    alert(`Produto ${productId} foi adicionado ao carrinho!`);
+}
 
         function changePage(pageNumber) {
             displayProducts(pageNumber);

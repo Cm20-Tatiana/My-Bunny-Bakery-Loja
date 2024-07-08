@@ -22,6 +22,7 @@
         width: 100%; /* Ensure full width */
         margin-bottom: 20px; /* Add some space between images */
     }
+
 }
 @media (max-width: 500px) {
     .container {
@@ -71,6 +72,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .menu {
@@ -201,13 +203,15 @@ body {
 
 .hero {
     background-image: url('imgs/hero.jpg');
-    background-size: cover;
+    background-size: cover; /* Use cover to ensure the background covers the entire container */
     background-position: center;
-    height: 500px;
     width: 100%;
+    height: 700px; /* Adjust the height as needed */
     position: relative;
-    padding-top: 500px;
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
 }
+
+
 
 .hero-content {
     position: absolute;
@@ -249,23 +253,31 @@ body {
 
 h1 {
     font-size: 2rem;
-    margin-bottom: 30px}
+    margin-bottom: 30px;
+    color: #6D3E35;
+}
+
 
 .container {
-    max-width: 1000px;
-    padding: 20px;
+        max-width: 1000px;
+    padding: 50px;
     margin: 0 auto; /* Center the container horizontally */
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center align columns horizontally */
     text-align: center; /* Center align text inside columns */
+
+}
+
+.container h2 {
+    color: #6D3E35;
 }
 
 .column {
     flex: 1 1 200px;
     margin: 0 10px 20px;
     border-radius: 8px;
-    text-align: left; /* Align text content inside columns to the left */
+    text-align: center; /* Align text content inside columns to the left */
 }
 
 
@@ -307,18 +319,32 @@ h1 {
     display: block;
 }
 
+.full-width-images img:hover {
+opacity: 0.8;
+cursor: pointer;
+}
+
 .full-width-images .img-button {
     position: absolute;
-    top: 50%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #EA6A79;
     color: white;
+    font-weight: bold;
+    font-size: 18px;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    opacity: 0.9
+
 }
+
+.full-width-images .img-button:hover {
+    background-color: #6D3E35;
+}
+    
 
 .gallery {
     position: relative;
@@ -373,7 +399,7 @@ h1 {
 }
 
 footer {
-    background-color: #333;
+    background-color: #6D3E35;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -425,6 +451,7 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     margin-top: 150px; /* Espaço suficiente para a barra de menu fixa */
+    padding: 30px;
 }
 
 .search-bar {
@@ -634,3 +661,92 @@ footer a:hover {
         overflow-y: auto; /* Adicionando rolagem vertical se o conteúdo exceder a altura */
     }
 }
+
+    .product-item {
+        text-align: center;
+    }
+
+    .product-item button {
+        display: block;
+        width: 50%;
+        max-width: 200px;
+        padding: 10px 20px;
+        background-color: #EA6A79;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0 auto 10px;
+    }
+
+    .product-item button:hover {
+        background-color: #6D3E35;
+    }
+
+    .product-item button::-moz-focus-inner,
+    .product-item button:focus {
+        outline: none;
+    }
+
+    .product-item h3 {
+        color: #6D3E35; 
+    }
+
+    .product-item img {
+        max-width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .overlay-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .overlay img {
+        max-width: 50%;
+        max-height: 400px;
+    }
+
+    .overlay-text {
+        max-width: 50%;
+        overflow-y: auto;
+    }
+
+    .overlay-text {
+        font-size: 14px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+    }
+
