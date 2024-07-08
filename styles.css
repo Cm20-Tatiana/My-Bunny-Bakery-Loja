@@ -23,6 +23,8 @@
         margin-bottom: 20px; /* Add some space between images */
     }
 
+    
+
 }
 @media (max-width: 500px) {
     .container {
@@ -128,7 +130,7 @@ body {
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    color: #EA6A79;
 }
 
 .cart-icon {
@@ -513,7 +515,6 @@ footer a:hover {
     flex: 1;
     padding-top: 120px; /* Adjust to make space for the fixed menu */
     padding-bottom: 70px; /* Adjust to make space for the fixed menu */
-
 }
 
 .contact-section {
@@ -522,14 +523,16 @@ footer a:hover {
     align-items: flex-start;
     padding: 50px;
     max-width: 1000px;
-    width:70%;
+    width: 100%; /* Adjusted for responsiveness */
     margin: 0 auto;
     border-radius: 8px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
 .contact-form {
     flex: 1;
     margin-right: 20px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
 .contact-form h2 {
@@ -548,7 +551,7 @@ footer a:hover {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .contact-form textarea {
@@ -558,7 +561,7 @@ footer a:hover {
 
 .contact-form button {
     padding: 10px 20px;
-    background-color: rgb(161, 38, 38);
+    background-color: #EA6A79;
     color: white;
     border: none;
     cursor: pointer;
@@ -570,7 +573,6 @@ footer a:hover {
     flex: 0.5; /* Adjust the flex value to make the contact info section occupy less space */
     margin-left: 20px; /* Add margin to separate it from the form */
 }
-
 
 .contact-info h2 {
     margin-bottom: 20px;
@@ -589,13 +591,12 @@ footer a:hover {
 .contact-info ul li a {
     text-decoration: underline;
     font-weight: bold;
-    color: brown;
+    color: #EA6A79;
 }
 
 .contact-info ul li {
     list-style-type: none; /* Removes the default bullet */
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -606,60 +607,134 @@ footer a:hover {
     
     .contact-form,
     .contact-info {
-        margin-bottom: 30px;
+        width: 100%; /* Ensure both sections take full width on small screens */
+        margin-right: 0; /* Reset margin */
+        margin-left: 0; /* Reset margin */
+    }
+    
+    .contact-form {
+        margin-bottom: 20px; /* Add some spacing between form and info */
     }
 }
-
 @media (max-width: 768px) {
     .product-list {
-        grid-template-columns: repeat(2, 1fr); /* Alterando para duas colunas em telas menores */
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+
+    .search-bar {
+        flex-direction: column; /* Stack search bar elements vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .search-bar select {
+        margin: 10px 0; /* Adjust margin for spacing */
+    }
+
+    .pagination {
+        margin-top: 20px; /* Maintain top margin for pagination */
     }
 }
 
 @media (max-width: 480px) {
     .product-list {
-        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
-        width: 90%; /* Ajustando largura para ocupar mais da largura disponível */
+        grid-template-columns: 1fr; /* Single column on very small screens */
     }
 
-    .search-bar {
-        flex-direction: column; /* Mudando para layout de coluna para melhor ajuste em telas estreitas */
-        align-items: center;
-    }
-
-    .search-bar select {
-        margin-left: 0; /* Removendo margem à esquerda para compactar melhor */
-        margin-top: 10px; /* Adicionando margem superior entre elementos */
-    }
-
-    .search-bar button {
-        margin: 10px 0 0 0; /* Ajustando margens para melhor espaçamento */
-    }
-
-    .pagination {
-        margin-top: 20px; /* Mantendo margem superior para a paginação */
-        flex-wrap: wrap; /* Garantindo que os botões de paginação quebrem corretamente */
-    }
-
-    .pagination button {
-        margin: 5px; /* Ajustando margens para melhor espaçamento */
-    }
-
-    .overlay-content {
-        flex-direction: column; /* Mudando para layout de coluna para melhor ajuste do conteúdo na sobreposição */
-        text-align: center; /* Centralizando conteúdo na sobreposição */
-    }
-
-    .overlay img {
-        max-width: 100%; /* Ajustando imagem para ocupar a largura disponível */
-        max-height: 300px; /* Limitando altura máxima para a sobreposição */
-    }
-
-    .overlay-text {
-        max-width: 100%; /* Garantindo que o texto na sobreposição ocupe a largura disponível */
-        overflow-y: auto; /* Adicionando rolagem vertical se o conteúdo exceder a altura */
+    .product-item button {
+        display: block;
+        padding: none;
+        background-color: #EA6A79;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: none;
+        margin: 0 auto; /* Center the button horizontally */
     }
 }
+
+.product-item {
+    text-align: center; /* Ensure product items are centered */
+    margin-bottom: 20px; /* Add space between product items */
+}
+
+.product-item button {
+    display: block;
+    padding: 15px 20px; /* Adjust padding for larger clickable area */
+    background-color: #EA6A79;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+.product-item button:hover {
+    background-color: #6D3E35;
+}
+
+
+.product-item h3 {
+    color: #6D3E35;
+    margin-bottom: 10px; /* Add space below heading */
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin-bottom: 10px; /* Add space below image */
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.overlay img {
+    max-width: 50%;
+    max-height: 400px;
+}
+
+.overlay-text {
+    max-width: 50%;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
 
     .product-item {
         text-align: center;
@@ -668,7 +743,7 @@ footer a:hover {
     .product-item button {
         display: block;
         width: 50%;
-        max-width: 200px;
+        max-width: 400px;
         padding: 10px 20px;
         background-color: #EA6A79;
         color: white;
@@ -751,12 +826,7 @@ footer a:hover {
 
 
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-    }
+ 
     .container2 {
         padding: 20px;
         max-width: 1100px;
