@@ -242,7 +242,7 @@ body {
     height: 50px; /* Adjust the height as needed */
     display: flex;
     justify-content: center; /* Center horizontally */
-    padding: 30px;
+    padding-top: 60px;
 
 }
 
@@ -304,7 +304,7 @@ h1 {
     display: flex;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding-bottom: 20px;
 }
 
 .image-wrapper {

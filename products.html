@@ -84,6 +84,14 @@
     </footer>
 
     <script>
+                document.getElementById('hamburger-menu').addEventListener('click', function() {
+            var mobileNavLinks = document.getElementById('mobile-nav-links');
+            if (mobileNavLinks.style.display === 'flex') {
+                mobileNavLinks.style.display = 'none';
+            } else {
+                mobileNavLinks.style.display = 'flex';
+            }
+        });
         const products = [
               {
                 id: 1,
