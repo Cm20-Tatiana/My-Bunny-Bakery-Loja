@@ -898,4 +898,8 @@ footer a:hover {
             order: unset;
             margin-left: 0;
         }
+        .header {
+            margin-bottom: 20px;
+            margin-top: 30%;
+        }
     }
