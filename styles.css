@@ -618,7 +618,10 @@ footer a:hover {
 }
 @media (max-width: 768px) {
     .product-list {
+        display: grid;
         grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+        gap: 20px; /* Adjust the gap between grid items */
+        justify-items: center; /* Center grid items horizontally */
     }
 
     .search-bar {
@@ -642,16 +645,17 @@ footer a:hover {
 
     .product-item button {
         display: block;
-        padding: none;
+        padding: 10px 20px; /* Example padding */
         background-color: #EA6A79;
         color: white;
         font-weight: bold;
         border: none;
         cursor: pointer;
-        transition: none;
-        margin: 0 auto; /* Center the button horizontally */
+        transition: background-color 0.3s ease;
+        margin: 10px auto; /* Center the button horizontally */
     }
 }
+
 
 .product-item {
     text-align: center; /* Ensure product items are centered */
