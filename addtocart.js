@@ -73,7 +73,7 @@ function displayCart() {
     document.getElementById('count').innerText = cart.length;
 
     if (cart.length === 0) {
-        document.getElementById('cartItem').innerHTML = 'Your cart is empty';
+        document.getElementById('cartItem').innerHTML = 'O seu carrinho está vazio';
         document.getElementById('total').innerText = '$ 0.00';
     } else {
         document.getElementById('cartItem').innerHTML = cart.map((item, index) => {
