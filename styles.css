@@ -80,7 +80,7 @@ body {
 .menu {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensure items are spread across */
     background-color: white;
     padding: 10px 20px;
     width: 100%;
@@ -113,18 +113,53 @@ body {
     font-size: 42px;
     color: #EA6A79;
     margin-left: 10px;
-    transition: font-size 0.3s; /* Adicionando transição para suavizar a mudança de tamanho */
+    transition: font-size 0.3s; /* Adding transition for smooth size change */
 }
+
+
+.cart {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px; /* Adjust padding to control space */
+    border-radius: 3px;
+    margin-right: 2%;
+}
+
+.cart i {
+    color: #f8b400;
+    font-size: 24px; /* Adjust icon size if necessary */
+}
+
+.cart p {
+    margin-left: 8px; /* Add margin between the icon and the count */
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background-color: #f8b400;
+    color: white;
+    font-size: 14px; /* Adjust font size if necessary */
+}
+
+.fa-solid {
+    color: #f8b400;
+}
+
+
+
 
 .nav-links {
     display: flex;
     align-items: center;
+    margin-left: auto; /* Move nav-links to the right */
 }
 
 .nav-links a {
     color: #6D3E35;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 10px; /* Adjust margin to control space */
     font-size: 18px;
     font-weight: bold;
 }
@@ -133,14 +168,6 @@ body {
     color: #EA6A79;
 }
 
-.cart-icon {
-    width: 24px;
-    height: 24px;
-    background-color: rgb(161, 38, 38);
-    margin-left: 15px;
-    margin-right: 50px;
-    border-radius: 4px;
-}
 
 .hamburger-menu {
     display: none;
@@ -882,28 +909,7 @@ footer a:hover {
     padding-top: 9%;
 }
 
-    .cart{
-        display: flex;
-        background-color: white;
-        justify-content: space-between;
-        align-items: center;
-        padding: 7px 10px;
-        border-radius: 3px;
-        width: 80px;
-    }
-    .fa-solid{
-        color: goldenrod;
-    }
-    .cart p{
-        height: 22px;
-        width: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 22px;
-        background-color: goldenrod;
-        color: white;
-    }
+
     .container3{
         display: flex;
         width: 70%;
@@ -989,7 +995,7 @@ footer a:hover {
         color: red;
     }
     
-    .bottom button {
+    .bottom button, .pagination button {
         width: 100%; /* Ensure button width matches container */
         border: none;
         border-radius: 5px;
@@ -1000,7 +1006,7 @@ footer a:hover {
         font-size: 18px;
     }
     
-    .bottom button:hover {
+    .bottom button:hover, .pagination button {
         background-color: #6D3E35;
     }
     
