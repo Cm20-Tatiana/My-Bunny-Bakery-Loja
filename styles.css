@@ -904,7 +904,6 @@ footer a:hover {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
     font-size: 18px;
     padding-top: 9%;
 }
@@ -930,12 +929,13 @@ footer a:hover {
         text-align: center;
     }
     .head{
-        background-color: #EA6A79;
         border-radius: 3px;
         height: 40px;
         padding: 10px;
         margin-bottom: 20px;
-        color: white;
+        color: #6D3E35;
+        font-size: 24px;
+        font-weight: bolder;
         display: flex;
         align-items: center;
     }
