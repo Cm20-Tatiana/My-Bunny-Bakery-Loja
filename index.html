@@ -9,36 +9,44 @@
 </head>
 <body>
 
-    <div class="menu">
-        <div class="logo-container">
-            <img src="imgs/logo.png" alt="Logo" class="logo">
-            <h1 class="bakery-name">MY BUNNY BAKERY</h1>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="products.html">Loja</a>
-            <a href="aboutus.html">Sobre Nós</a>
-            <a href="contacts.html">Contactos</a>
-            <div class="cart-icon"></div>
-        </div>
-        <div class="hamburger-menu" id="hamburger-menu">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-    </div>
-    <div class="mobile-nav-links" id="mobile-nav-links">
-        <a href="index.html">Home</a>
-        <hr>
-        <a href="products.html">Loja</a>
-        <hr>
-        <a href="aboutus.html">Sobre Nós</a>
-        <hr>
-        <a href="contacts.html">Contactos</a>
-        <hr>
-        <div class="cart-icon"></div>
-    </div>
+    <div class="menu-inteiro">
+        <div class="menu">
+            <div class="logo-container">
+                <img src="imgs/logo.png" alt="Logo" class="logo">
+                <h1 class="bakery-name">MY BUNNY BAKERY</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Loja</a>
+                <a href="aboutus.html">Sobre Nós</a>
+                <a href="contacts.html">Contactos</a>
+            </div>
+            <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p id="count">0</p>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
 
+        </div>
+        <div class="mobile-nav-links" id="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <hr>
+            <a href="products.html">Loja</a>
+            <hr>
+            <a href="aboutus.html">Sobre Nós</a>
+            <hr>
+            <a href="contacts.html">Contactos</a>
+            <hr>
+            <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p id="count">0</p>
+            </div>
+        </div>
+        </div>
     <div class="hero">
         <div class="hero-content">
             <h2>Everything you need for your bunny!</h2>
@@ -155,6 +163,8 @@
         </div>
         
         <script src="script.js"></script>
+        <script src="addtocart.js"></script>
+
 
 
 </body>

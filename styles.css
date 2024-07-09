@@ -990,7 +990,7 @@ footer a:hover {
         align-items: center;
     }
     
-    h2 {
+    .containerproduct h2 {
         font-size: 20px;
         color: red;
     }
