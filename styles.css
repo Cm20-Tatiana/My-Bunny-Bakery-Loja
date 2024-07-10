@@ -1177,4 +1177,8 @@ footer a:hover {
     .box {
         width: 90%;
     }
+
+    .close-button {
+        color:#6D3E35;
+    }
 }
