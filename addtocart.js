@@ -127,11 +127,11 @@ const products = [
         overlay.style.display = 'none';
     }
     
-    
     function prevPage() {
         if (currentPage > 1) {
             currentPage--;
             displayProducts();
+            scrollToTop();
         }
     }
     
@@ -139,7 +139,15 @@ const products = [
         if (currentPage * itemsPerPage < filteredProducts.length) {
             currentPage++;
             displayProducts();
+            scrollToTop();
         }
+    }
+    
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'  // animação suave
+        });
     }
     
     function addToCart(id) {
