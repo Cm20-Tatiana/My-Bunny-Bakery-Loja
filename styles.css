@@ -1169,7 +1169,10 @@ footer a:hover {
             justify-content: center; /* Center items vertically */
         }
     
-
+        #root {
+            grid-template-columns: 1fr; /* Change to one column layout */
+            grid-gap: 10px; /* Adjust grid gap as needed */
+        }
  
     
 
