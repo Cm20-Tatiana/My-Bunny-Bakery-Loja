@@ -98,7 +98,7 @@ const products = [
                     </div>
                     <div class='bottom'>
                         <p>${item.name}</p>
-                        <h2>$ ${item.price.toFixed(2)}</h2>
+                        <h2>${item.price.toFixed(2)} €</h2>
                         <button onclick='showOverlay("${item.image}", \`${item.info}\`)' >Mais Informação</button>
                         <button onclick='addToCart(${item.id})'>Adiciona ao Carrinho</button>
                     </div>
@@ -128,28 +128,28 @@ const products = [
     }
     
     function prevPage() {
-        if (currentPage > 1) {
-            currentPage--;
-            displayProducts();
-            scrollToTop();
-        }
+    if (currentPage > 1) {
+        currentPage--;
+        displayProducts();
+        scrollToTop();
     }
-    
-    function nextPage() {
-        if (currentPage * itemsPerPage < filteredProducts.length) {
-            currentPage++;
-            displayProducts();
-            scrollToTop();
-        }
+}
+
+function nextPage() {
+    if (currentPage * itemsPerPage < filteredProducts.length) {
+        currentPage++;
+        displayProducts();
+        scrollToTop();
     }
-    
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'  // animação suave
-        });
-    }
-    
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // animação suave
+    });
+}
+
     function addToCart(id) {
         const item = products.find(product => product.id === id);
         cart.push({ ...item });
@@ -167,7 +167,7 @@ const products = [
     
         if (cart.length === 0) {
             document.getElementById('cartItem').innerHTML = 'O seu carrinho está vazio';
-            document.getElementById('total').innerText = '$ 0.00';
+            document.getElementById('total').innerText = '€ 0.00';
         } else {
             document.getElementById('cartItem').innerHTML = cart.map((item, index) => {
                 total += item.price;
@@ -177,14 +177,15 @@ const products = [
                             <img class='rowimg' src=${item.image} alt="${item.name}">
                         </div>
                         <p>${item.name}</p>
-                        <h2>$ ${item.price.toFixed(2)}</h2>
+                        <h2>${item.price.toFixed(2)} €</h2> 
                         <i class='fa-solid fa-trash' onclick='delElement(${index})'></i>
                     </div>
                 `;
             }).join('');
-            document.getElementById('total').innerText = `$ ${total.toFixed(2)}`;
+            document.getElementById('total').innerText = `${total.toFixed(2)} €`; // Colocado o € após o valor total
         }
     }
+    
     
     function searchProducts() {
         const searchTerm = document.getElementById('search').value.toLowerCase();
