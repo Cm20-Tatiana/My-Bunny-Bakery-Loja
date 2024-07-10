@@ -1156,9 +1156,13 @@ footer a:hover {
         margin-top: 20px;
     }
     .pagination {
-        flex-direction: column;
-        align-items: center;
+        display: inline-flex;
+        justify-content: center; /* Center the buttons */
         width: 100%; /* Ensure full width */
+        text-align: center; /* Center the content */
+    }
+    .pagination button {
+        margin: 5px; /* Add some margin between buttons */
     }
 }
 
