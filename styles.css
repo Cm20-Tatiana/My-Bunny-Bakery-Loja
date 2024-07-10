@@ -1141,36 +1141,37 @@ footer a:hover {
     background-color: #6D3E35;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
+    .containerproduct {
+        padding-top: 5%;
+        font-size: 16px;
+    }
+
     .container3 {
         flex-direction: column;
+        align-items: center;
         width: 100%;
     }
+
     #root {
         width: 100%;
         grid-template-columns: 1fr;
+        grid-gap: 10px;
     }
+
     .sidebar {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 20px;
+        width: 80%;
+        margin: 20px 0;
     }
+
     .pagination {
-        display: inline-flex;
-        justify-content: center; /* Center the buttons */
-        width: 100%; /* Ensure full width */
-        text-align: center; /* Center the content */
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
-    .pagination button {
-        margin: 5px; /* Add some margin between buttons */
+
+    .box {
+        width: 90%;
     }
 }
 
-@media only screen and (max-width: 480px) {
-    .containerproduct {
-        padding-top: 5%;
-    }
-    .box {
-        min-height: 300px;
-    }
-}
