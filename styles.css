@@ -938,222 +938,235 @@ footer a:hover {
     padding-top: 9%;
 }
 
+.container3 {
+    display: flex;
+    width: 70%;
+    margin-bottom: 30px;
+}
 
-    .container3{
-        display: flex;
-        width: 70%;
-        margin-bottom: 30px;
-    }
-    #root{
-        width: 60%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
-    }
-    .sidebar{
-        width: 40%;
-        border-radius: 5px;
-        background-color: #eee;
-        margin-left: 20px;
-        padding: 15px;
-        text-align: center;
-    }
-    .head{
-        border-radius: 3px;
-        height: 40px;
-        padding: 10px;
-        margin-bottom: 20px;
-        color: #6D3E35;
-        font-size: 24px;
-        font-weight: bolder;
-        display: flex;
-        align-items: center;
-    }
-    .foot{
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0px;
-        padding: 10px 0px;
-        border-top: 1px solid #6D3E35;
-    }
-    .box {
-        display: flex;
+#root {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.sidebar {
+    width: 40%;
+    border-radius: 5px;
+    background-color: #eee;
+    margin-left: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+.head {
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #6D3E35;
+    font-size: 24px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top: 1px solid #6D3E35;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #EA6A79;
+    border-radius: 5px;
+    padding: 15px;
+    /* Ensure enough height to contain all elements */
+    min-height: 350px; /* Adjust as necessary */
+}
+
+.img-box {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.images {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.bottom {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerproduct h2 {
+    font-size: 20px;
+    color: red;
+}
+
+.bottom button,
+.pagination button {
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    background-color: #EA6A79;
+    padding: 10px 25px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px; /* Add space between buttons */
+}
+
+.bottom button:hover,
+.pagination button:hover {
+    background-color: #6D3E35;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 10px 10px;
+}
+
+.row-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowimg {
+    max-width: 43px;
+    max-height: 43px;
+    border-radius: 50%;
+}
+
+.fa-trash:hover {
+    cursor: pointer;
+    color: #6D3E35;
+}
+
+/* existing CSS remains the same */
+.search-bar {
+    width: 70%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.search-bar select {
+    width: 35%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.pagination {
+    width: 42%;
+    margin-right: 30.5%;
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    margin-bottom: 30px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    background-color: #EA6A79;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #6D3E35;
+}
+
+.sidebar button {
+    padding: 8px 16px; /* Adjusted padding for a more compact button */
+    background-color: #EA6A79;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-bottom: 8px; /* Slightly reduced margin between buttons */
+    font-size: 16px; /* Adjust font size to make text more readable */
+    line-height: 1.4; /* Improved line height for better readability */
+}
+
+.sidebar button:hover {
+    background-color: #6D3E35;
+}
+
+@media only screen and (max-width: 768px) {
+    .container3 {
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid #EA6A79;
-        border-radius: 5px;
-        padding: 15px;
-        /* Ensure enough height to contain all elements */
-        min-height: 350px; /* Adjust as necessary */
-    }
-    
-    .img-box {
         width: 100%;
-        height: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
-    
-    .images {
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: cover;
-        object-position: center;
+    #root {
+        width: 100%;
+        grid-template-columns: 1fr;
     }
-    
-    .bottom {
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
         margin-top: 20px;
-        width: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .bottom-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .containerproduct h2 {
-        font-size: 20px;
-        color: red;
-    }
-    
-    .bottom button, .pagination button {
-        width: 80%;
-        border: none;
-        border-radius: 5px;
-        background-color: #EA6A79;
-        padding: 10px 25px;
-        cursor: pointer;
-        color: white;
-        font-size: 16px;
-        margin-top: 10px; /* Add space between buttons */
-    }
-    
-    .bottom button:hover, .pagination button {
-        background-color: #6D3E35;
-    }
-    
-    .cart-item{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
-        background-color: white;
-        border-bottom: 1px solid #aaa;
-        border-radius: 3px;
-        margin: 10px 10px;
-    }
-    .row-img{
-        width: 55px;
-        height: 55px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .rowimg{
-        max-width: 43px;
-        max-height: 43px;
-        border-radius: 50%;
-    }
-    .fa-trash:hover{
-        cursor: pointer;
-        color: #6D3E35;
-    }
-    
-    /* existing CSS remains the same */
-    .search-bar {
-        width: 70%;
-        margin: 20px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .search-bar input {
-        width: 60%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
-    .search-bar select {
-        width: 35%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
     }
     .pagination {
-        width: 42%;
-        margin-right: 30.5%;
-        display: flex;
-        justify-content: flex-start; /* Aligns items to the left */
-        margin-bottom: 30px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Ensure full width */
     }
-    .pagination button {
-        padding: 10px 20px;
-        background-color: #EA6A79;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-        color: white;
-    }
-    .pagination button:hover {
-        background-color: #6D3E35;
-    }
-    
-    .sidebar button {
-        padding: 8px 16px; /* Adjusted padding for a more compact button */
-        background-color: #EA6A79;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-        color: #fff;
-        font-weight: bold;
-        display: block;
-        text-align: left;
-        margin-bottom: 8px; /* Slightly reduced margin between buttons */
-        font-size: 16px; /* Adjust font size to make text more readable */
-        line-height: 1.4; /* Improved line height for better readability */
-    }
-    
-    .sidebar button:hover {
-        background-color: #6D3E35;
-    }
-    
+}
 
-    @media only screen and (max-width: 768px) {
-        .container3 {
-            flex-direction: column;
-            width: 100%;
-        }
-        #root {
-            width: 100%;
-            grid-template-columns: 1fr;
-        }
-        .sidebar {
-            width: 100%;
-            margin-left: 0;
-            margin-top: 20px;
-        }
-        .pagination {
-            flex-direction: column;
-            align-items: center;
-        }
+@media only screen and (max-width: 480px) {
+    .containerproduct {
+        padding-top: 5%;
     }
-    
-    @media only screen and (max-width: 480px) {
-        .containerproduct {
-            padding-top: 5%;
-        }
-        .box {
-            min-height: 300px;
-        }
+    .box {
+        min-height: 300px;
     }
-    
+}
