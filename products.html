@@ -81,6 +81,16 @@
                 <p>Follow us on <a href="https://www.instagram.com/youraccount" target="_blank">Instagram</a></p>
             </div>
         </footer>
+
+        <div id="overlay" class="overlay">
+            <div class="overlay-content">
+                <img id="overlay-image" src="" alt="Product Image">
+                <div id="overlay-text" class="overlay-text"></div>
+                <button class="close-button" onclick="closeOverlay()">&times;</button>
+            </div>
+        </div>
+
+        
         <script>
             document.getElementById('hamburger-menu').addEventListener('click', function() {
                 var mobileNavLinks = document.getElementById('mobile-nav-links');

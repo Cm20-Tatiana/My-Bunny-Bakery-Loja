@@ -714,6 +714,9 @@ footer a:hover {
     overflow-y: auto;
     font-size: 14px;
 }
+.overlay-text h2, .overlay-text strong {
+    color: #6D3E35;
+}
 
 .close-button {
     position: absolute;
@@ -982,7 +985,7 @@ footer a:hover {
     }
     
     .bottom-content {
-        flex: 1; /* Allow content to expand */
+        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -995,14 +998,15 @@ footer a:hover {
     }
     
     .bottom button, .pagination button {
-        width: 80%; /* Ensure button width matches container */
+        width: 80%;
         border: none;
         border-radius: 5px;
         background-color: #EA6A79;
-        padding: 10px 25px; /* Increase padding for better button appearance */
+        padding: 10px 25px;
         cursor: pointer;
         color: white;
         font-size: 16px;
+        margin-top: 10px; /* Add space between buttons */
     }
     
     .bottom button:hover, .pagination button {
