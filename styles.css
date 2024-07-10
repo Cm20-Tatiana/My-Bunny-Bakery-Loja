@@ -951,12 +951,14 @@ footer a:hover {
     grid-gap: 20px;
 }
 
+
 .sidebar {
-    width: 40%;
+    width: 80%; /* Ajustado para 80% para ocupar mais espaço */
+    max-width: 300px; /* Definindo um tamanho máximo para a barra lateral */
+    margin: 20px auto; /* Centraliza a barra lateral horizontalmente */
+    padding: 15px;
     border-radius: 5px;
     background-color: #eee;
-    margin-left: 20px;
-    padding: 15px;
     text-align: center;
 }
 
@@ -1160,15 +1162,17 @@ footer a:hover {
     }
 
     .sidebar {
-        width: 80%;
+        width: 80%; /* Ajustado para 80% para ocupar mais espaço */
+        max-width: 100%; /* Define a largura máxima para ocupar a largura total da tela */
         margin: 20px 0;
     }
-
     .pagination {
+        width: 100%;
         display: flex;
         justify-content: center;
-        width: 100%;
+        margin-bottom: 30px;
     }
+    
 
     .box {
         width: 90%;
