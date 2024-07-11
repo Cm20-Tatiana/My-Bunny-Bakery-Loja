@@ -189,7 +189,7 @@ body {
     display: none;
     flex-direction: column;
     position: fixed; /* Muda de absolute para fixed */
-    top: 120px; /* Ajuste conforme necessário para posicionar corretamente */
+    top: 15%; /* Ajuste conforme necessário para posicionar corretamente */
     left: 0;
     right: 0;
     background-color: white;
@@ -548,7 +548,7 @@ footer a:hover {
     justify-content: center;
     width: 100%;
     flex: 1;
-    padding-top: 120px; /* Adjust to make space for the fixed menu */
+    padding-top: 90px; /* Adjust to make space for the fixed menu */
     padding-bottom: 70px; /* Adjust to make space for the fixed menu */
 }
 
@@ -637,7 +637,7 @@ footer a:hover {
 @media (max-width: 768px) {
     .contact-section {
         flex-direction: column;
-        padding: 30px;
+        padding: 10px;
     }
     
     .contact-form,
@@ -928,7 +928,7 @@ footer a:hover {
         }
         .header {
             margin-bottom: 20px;
-            margin-top: 30%;
+            margin-top: 12%;
         }
     }
 
