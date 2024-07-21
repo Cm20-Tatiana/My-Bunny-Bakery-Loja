@@ -1,33 +1,66 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer-master/PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/PHPMailer-master/src/SMTP.php';
+
+// Set the path to the CA certificates file
+$caCertFile = 'C:\wamp64\www\bunny shop\My-Bunny-Bakery\cacert.pem';
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form fields
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    // Your email where you want to receive messages
-    $to = "cm20.tatiana.silva@gmail.com";
+    // Create a PHPMailer instance
+    $mail = new PHPMailer(true); // Passing true enables exceptions
 
-    // Subject of the email
-    $subject = "New Contact Us Message from $name";
+    try {
+        // Server settings
+$mail->isSMTP();  // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;  // Enable SMTP authentication
+$mail->Username = 'mybunnybakerymail@gmail.com';  // SMTP username (your Gmail address)
+$mail->Password = 'mybunnybakery.mail2';  // SMTP password (your Gmail password or App Password)
+$mail->SMTPSecure = 'tls';  // Enable TLS encryption, 'ssl' also accepted
+$mail->SMTPAutoTLS = false;
+$mail->Port = 587;  // TCP port to connect to
 
-    // Email body
-    $body = "Name: $name\n";
-    $body .= "Email: $email\n\n";
-    $body .= "Message:\n$message\n";
+// Set CA file path
+$mail->SMTPOptions = array(
+    'ssl' => array(
+        'verify_peer' => true,
+        'verify_peer_name' => true,
+        'allow_self_signed' => false,
+        'cafile' => 'C:\wamp64\www\bunny shop\My-Bunny-Bakery\cacert.pem', // Adjust path as needed
+    ),
+);
 
-    // Headers for the email
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+    
+        // Recipients
+        $mail->setFrom('mybunnybakerymail@gmail.com', 'My Bunny Bakery');
+        $mail->addAddress('mybunnybakerymail@gmail.com');  // Add a recipient
 
-    // Send the email
-    if (mail($to, $subject, $body, $headers)) {
+        // Content
+        $mail->isHTML(false);  // Set email format to HTML
+        $mail->Subject = "New Contact Us Message from $name";
+        $mail->Body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+        // Enable verbose debug output
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = function($str, $level) { echo "debug level $level; message: $str"; };
+
+        // Send email
+        $mail->send();
         echo "Thank you! Your message has been sent.";
-    } else {
-        echo "Oops! Something went wrong, please try again later.";
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 } else {
     echo "Invalid request.";
 }
 ?>
-

@@ -67,7 +67,7 @@
                         <h3>Total</h3>
                         <h2 id="total">0.00 €</h2>
                     </div>
-                    <button>Finalizar a Compra</button>
+                    <button id="finalizeBtn">Finalizar a Compra</button>
                 </div>
             </div>
             <div class="pagination">
@@ -92,6 +92,18 @@
             </div>
         </div>
 
+    
+        <div id="emailModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="emailForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit">Enviar Pedido</button>
+                </form>
+            </div>
+        </div>
+
         
         <script>
             document.getElementById('hamburger-menu').addEventListener('click', function() {
@@ -102,6 +114,48 @@
                     mobileNavLinks.style.display = 'flex';
                 }
             });
+
+            document.getElementById('finalizeBtn').addEventListener('click', function() {
+            document.getElementById('emailModal').style.display = 'block';
+        });
+
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('emailModal').style.display = 'none';
+        });
+
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            sendOrder();
+        });
+
+        function sendOrder() {
+            const email = document.getElementById('email').value;
+            const cartItems = cart.map(item => ({
+                name: item.name,
+                price: item.price
+            }));
+            const total = document.getElementById('total').innerText;
+
+            fetch('sendEmail.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    cartItems: cartItems,
+                    total: total
+                })
+            }).then(response => response.json())
+              .then(data => {
+                if (data.success) {
+                    alert('Pedido enviado com sucesso!');
+                    document.getElementById('emailModal').style.display = 'none';
+                } else {
+                    alert('Erro ao enviar o pedido. Por favor, tente novamente.');
+                }
+              });
+        }
         </script>
 
         <script src="addtocart.js"></script>

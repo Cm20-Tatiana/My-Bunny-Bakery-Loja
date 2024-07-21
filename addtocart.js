@@ -1,7 +1,7 @@
 const products = [
     {
         id: 1,
-        image: 'imgs/product1.jpg',
+        image: 'imgs/product1.png',
         name: 'Hayberry Delights',
         type: 'feno',
         price: 6,
@@ -9,7 +9,7 @@ const products = [
     },
     {
         id: 2,
-        image: 'imgs/product2.jpg',
+        image: 'imgs/product2.png',
         name: 'Blossom Spinach',
         type: 'aveia',
         price: 5,
@@ -25,7 +25,7 @@ const products = [
     },
     {
         id: 4,
-        image: 'imgs/product4.jpg',
+        image: 'imgs/product4.png',
         name: 'BananaBee Cookies',
         type: 'aveia',
         price: 4.60,
@@ -33,7 +33,7 @@ const products = [
     },
     {
         id: 5,
-        image: 'imgs/product5.jpg',
+        image: 'imgs/product5.png',
         name: 'Mini Heart Bites',
         type: 'aveia',
         price: 5,
@@ -41,21 +41,21 @@ const products = [
     },
     {
         id: 6,
-        image: 'imgs/product6.jpg',
+        image: 'imgs/product6.png',
         name: 'Rose Raspberry Ice Cream',
         type: 'feno',
         price: 5,
         info: '<h2>Rose Raspberry Ice Cream</h2><p>Nosso gelado natural combina feno de Timóteo bio, framboesas e rosas para proporcionar benefícios à saúde do seu coelhinho. Cada trinca é uma iguaria refrescante e nutritiva que encantará o paladar do seu coelho.</p><p><strong>INGREDIENTES:</strong><br>• Feno (Timóteo bio)<br>• Framboesa<br>• Rosas</p><p><strong>NOTA IMPORTANTE:</strong><br>Gelado seguro para coelhos, ofereça em pequenas quantidades e ocasionalmente. Contém ervas e frutas benéficas, mas introduza na dieta com moderação devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco ocasional e refrescante, não substituto de refeições. Ofereça uma pequena porção como mimo refrescante. Evite excessos, especialmente após consumo de outras guloseimas. Controle a quantidade de açúcar oferecida.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,00 por unidade</p>'
     },
     { id: 7, 
-        image: 'imgs/product7.jpg',
+        image: 'imgs/product7.png',
         name: 'Corneto de Calêndula', 
         type: 'feno', 
         price: 5,
         info:'<h2>Corneto de Calêndula</h2><p>Nosso Corneto de Calêndula é rico em fibras, vitaminas e minerais essenciais para uma dieta equilibrada. Combina feno Timóteo bio com a saborosa banana, proporcionando uma experiência única de sabor e nutrição para o seu coelhinho.</p><p><strong>INGREDIENTES:</strong><br>• Feno Timóteo bio<br>• Banana</p><p><strong>NOTA IMPORTANTE:</strong><br>Corneto seguro para coelhos, ofereça em pequenas quantidades e ocasionalmente. Contém ingredientes benéficos, mas introduza na dieta com moderação devido à sensibilidade dos estômagos dos coelhos.</p><p><strong>RECOMENDAÇÕES:</strong><br>Utilizar dentro de 6 meses. Destinado a animais de estimação saudáveis como um petisco ocasional e nutritivo, não substituto de refeições. Ofereça como um mimo especial. Evite excessos, especialmente após consumo de outras guloseimas. Controle a quantidade de açúcar oferecida.</p><p><strong>ARMAZENAMENTO:</strong><br>Armazenar em local fresco e seco.</p><p><strong>PACOTE</strong><br>Preço: 5,00 por unidade</p>' 
     },
     { id: 8, 
-        image: 'imgs/product8.jpg', 
+        image: 'imgs/product8.png', 
         name: 'Bolachas de Morango com Aveia', 
         type: 'aveia', 
         price: 5.50,
@@ -68,7 +68,7 @@ const products = [
         price: 18 },
 
     { id: 10, 
-        image: 'imgs/product10.jpg', 
+        image: 'imgs/product10.png', 
         name: 'Crispy Carrots biscuits with camomile', 
         type: 'aveia', 
         price: 5,
